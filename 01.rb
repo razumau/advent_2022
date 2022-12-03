@@ -2,6 +2,8 @@
 
 require_relative 'utils'
 
+DAY = '01'
+
 Elf = Data.define(:calories)
 
 def group_by_elf(input)
@@ -19,14 +21,14 @@ def group_by_elf(input)
 end
 
 def run_first(sample:)
-  input = sample ? sample_input(day: '01') : input(day: '01')
+  input = sample ? sample_input(day: DAY) : input(day: DAY)
   elves = group_by_elf(input)
   max_calories = elves.map(&:calories).max
   p "max calories carried by an elf is #{max_calories}"
 end
 
 def run_second(sample:)
-  input = sample ? sample_input(day: '01') : input(day: '01')
+  input = sample ? sample_input(day: DAY) : input(day: DAY)
   elves = group_by_elf(input)
   carried_by_top_3_elves = elves.map(&:calories).sort[-3..-1].sum
   p "top three elves are carrying #{carried_by_top_3_elves} calories"
